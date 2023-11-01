@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects in js</title>
+</head>
+<body>
+  <script>
+    const student = {
+      name: 'S Mohan',
+      age: 22,
+      gender: 'male',
+      dob: '03-05-2001'
+    };
+
+    console.log(student);
+    console.log(student.name);
+    console.log(student.age);
+    console.log(student.gender);
+    console.log(student.dob);
+
+    const car = {
+      'Brand-name':'Maruthi-suzuki',
+      'Fuel-type': 'diesel',
+      'Car-color': 'red',
+      Mileage: '22km/litre',
+      'Tyre-type': 'MRF'
+    }
+
+    console.log(car);
+    console.log(car['Brand-name']);
+    console.log(car['Fuel-type']);
+    console.log(car['Car-color']);
+    console.log(car.Mileage); // car['Mileage'] this is also working fine
+    console.log(car['Tyre-type']);
+
+    const object1 = {
+      message: 'hii hello java script'
+    }
+    console.log(object1);
+
+    const object2 = {
+      message: 'This is cool'
+    }
+    console.log(object2);
+
+    const object3 = object1;
+    console.log(object3);
+
+    console.log(object2 === object1);
+    console.log(object3 === object1);
+
+    /* destructing
+          It is easier way to take out the object property in the object and store it in same name variables
+    */
+
+    const object4 = {
+      message: 'hello world!',
+      price: 500
+    }
+
+    //const message = object4.message;
+    //const {message} = object4;
+    //const {price} = object4;
+    const {message, price} = object4
+    console.log(message);
+    console.log(price);
+
+    // Auto-boxing
+    const name = 'Sam';
+    console.log(name.toUpperCase());
+    console.log(name.toLowerCase());
+
+    const age = 25;
+    console.log(age.toString());
+
+    // Manual-boxing
+    const flag1 = new Object(25);
+    const flag2 = 25;
+    console.log(flag1);
+    console.log(typeof flag1);
+    console.log(flag2);
+    console.log(typeof flag2);
+    console.log(flag1 === flag2);
+
+    // un-boxing
+    const num = Object(64);
+    console.log(num);
+    console.log(num.valueOf());
+
+    // shorthand property
+    const object5 = {
+      //message: message   this will copy the same value of the message and store it in message property
+      message // this is shorthand property of the above one.
+    }
+    console.log(message);
+
+    // shorthand method 
+    const object6 = {
+      // method: function fun() {
+      //   console.log('hii hello this is method');
+      // }
+
+      method() {
+        console.log('hii hello this is method')
+        // this is the shorthand method for above one.
+      }
+    }
+    console.log(object6.method());
+
+    // product object
+    const product = {
+      name: 'basketball',
+      price: 2095
+    }
+    console.log(product);
+    product.price += 500;
+    console.log(product);
+
+    // add product property
+    product['delivery-time']='3 days';
+    console.log(product);
+
+    // compare price
+    const product1 = {
+      name: 'Foot-ball',
+      price: 850
+    }
+
+    const product2 = {
+      name: 'T-shirt',
+      price: 250
+    }
+    function comparePrice(product1, product2) {
+      if(product1.price < product2.price) {
+        return product1.price
+      } else {
+        return product2.price
+      }
+    }
+
+    console.log(comparePrice(product1,  product2));
+
+    // two product are same or not.
+    const product3 = {
+      name: 'Redmi 12 pro',
+      price: 14000
+    }
+    const product4 = {
+      name: 'Maruthi suzuki',
+      price: 250000
+    }
+    console.log(product3 === product4);
+
+     const product5 = product3;
+
+    console.log(product3 === product5);
+
+    function isSameProduct(product1, product2) {
+      if(product1 === product2) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    const finalResult = isSameProduct(product1,  product5);
+    console.log(finalResult);
+
+    // convert string to lowercase
+    let msg = 'Good Morning!';
+    console.log(msg=msg.toLowerCase());
+    console.log(msg);
+    console.log(msg.repeat(4)); // repeat function is used to repeat the string
+  </script>
+</body>
+</html>

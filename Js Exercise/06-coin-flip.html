@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin flip</title>
+  </head>
+  <body>
+    <script>
+      // coin flip
+      const randomNumber = Math.random();
+      let result = "";
+      const guess = "Heads";
+      /*
+      if(randomNumber >=0.0 && randomNumber <=0.5) {
+        result = 'Heads';
+      } else {
+        result = 'Tails';
+      }
+      console.log(`you picked ${guess}. computer picked ${result}`);
+      if(guess === result) {
+        console.log('You win!');
+      } else {
+        console.log('You lose!');
+      }
+      */
+
+      // Ternary operator
+
+      randomNumber >= 0.0 && randomNumber <= 0.5
+        ? (result = "Heads")
+        : (result = "Tails");
+
+      console.log(`You picked ${guess}. Computer picked ${result}`);
+
+      guess === result ? console.log("You win!") : console.log("You lose!");
+    </script>
+  </body>
+</html>

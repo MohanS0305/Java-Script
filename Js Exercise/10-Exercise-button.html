@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 10</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .cart-btn {
+        background-color: rgb(255, 216, 20);
+        border: none;
+        border-radius: 15px;
+        padding: 5px 30px;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+
+      .uber-btn .request-btn {
+        background-color: rgb(25, 25, 25);
+        font-size: 12px;
+        font-weight: 600;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+
+      .uber-btn .schedule-btn {
+        border: none;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+
+      .game-btn {
+        margin-top: 20px;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+
+      .after-game-btn {
+        background-color: black;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 4px;
+      }
+
+      .toggle-btn button {
+        border: none;
+        padding: 8px 10px;
+        cursor: pointer;
+      }
+      .after-toggle-btn {
+        background-color: black;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- amazon button -->
+    <button class="cart-btn">Add to Cart</button>
+
+    <!-- uber button -->
+    <section class="uber-btn">
+      <button class="request-btn">Request now</button>
+      <button class="schedule-btn">Schedule for later</button>
+    </section>
+
+    <!-- <button class="test-btn">Test</button> -->
+
+    <button onclick="onOff()" class="js-game-btn game-btn">Gaming</button>
+
+    <!-- toggle button -->
+    <section class="toggle-btn">
+      <button class="js-toggle-game" onclick="toggleBtn('js-toggle-game')">
+        Gaming
+      </button>
+      <button class="js-toggle-music" onclick="toggleBtn('js-toggle-music')">
+        Music
+      </button>
+      <button class="js-toggle-tech" onclick="toggleBtn('js-toggle-tech')">
+        Tech
+      </button>
+    </section>
+
+    <script>
+      // const testBtnElement = document.querySelector(".test-btn");
+
+      // testBtnElement.classList.add(".js-button");
+
+      let gameBtnElement = document.querySelector(".js-game-btn");
+
+      function onOff() {
+        gameBtnElement.classList.toggle("after-game-btn");
+      }
+
+      function toggleBtn(toggle) {
+        let toggleBtnElement = document.querySelector(`.${toggle}`);
+
+        toggleBtnElement.classList.toggle("after-toggle-btn");
+      }
+    </script>
+  </body>
+</html>

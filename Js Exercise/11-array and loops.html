@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays and loops</title>
+  </head>
+  <body>
+    <script>
+      /*
+      const myArray = [10, 20, 30, 40, 50];
+      console.log(myArray);
+      console.log(myArray[0]);
+      myArray[0] = 100;
+      console.log(myArray);
+      console.log(typeof [1, 2]);
+      console.log(Array.isArray([1, 2]));
+      myArray.push(60);
+      console.log(myArray);
+      myArray.splice(0, 3);
+      console.log(myArray);
+      console.log(``);
+      console.log(`While loop`);
+
+      let i = 1;
+      while (i <= 5) {
+        console.log(i);
+        i++;
+      }
+      console.log(``);
+      console.log(`For loop`);
+      for (i = 1; i <= 5; i++) {
+        console.log(i);
+      }
+
+      // Accumulator procedure
+      // add an array
+      const addArray = [1, 2, 3, 4, 5];
+      let result = 0;
+
+      for (let i = 0; i < addArray.length; i++) {
+        result += addArray[i];
+      }
+      console.log(result);
+
+      // add strings of array
+      const strArray = [
+        "make dinner",
+        "wash plates",
+        "watch youtube",
+        "go to bed",
+      ];
+
+      let todoList = "";
+
+      for (i = 0; i < strArray.length; i++) {
+        const todo = strArray[i];
+        const html = `<p>${todo}</p>`;
+        todoList += html;
+      }
+      console.log(todoList);
+
+      // Array practice
+      const nums = [10, 20, 30];
+      nums[2] = 99;
+      console.log(nums);
+
+      const myArray2 = [10, 15, 25, 46, 90];
+      getLastValue(myArray2);
+
+      const strArray2 = [
+        "make a coffee",
+        "play cricket",
+        "study",
+        "make dinner",
+        "wash plates",
+        "go to bed",
+      ];
+
+      getLastValue(strArray2);
+
+      function getLastValue(array) {
+        lastIndex = array.length - 1;
+        const lastElement = array[lastIndex];
+        console.log(lastElement);
+      }
+
+      console.log("swap array first and last index");
+      // first and last index swap Array
+      const array = [1, 20, 22, 24, 5];
+      swapArray(array);
+
+      const strArray3 = ["hii", "hello", "good"];
+      swapArray(strArray3);
+
+      function swapArray(array) {
+        lastIndex = array.length - 1;
+        let temp = array[0];
+        array[0] = array[lastIndex];
+        array[lastIndex] = temp;
+        console.log(array);
+      }
+
+      // using for loop
+      console.log("even numbers using for loop");
+      // number count by 2
+      for (let i = 0; i <= 10; i += 2) {
+        console.log(i);
+      }
+
+      console.log("reverse the no using for loop");
+      // reverse the number
+      for (let i = 5; i >= 0; i--) {
+        console.log(i);
+      }
+
+      // using while loop
+      console.log("even numbers using while loop");
+      // number count by 2
+      i = 0;
+      while (i <= 10) {
+        console.log(i);
+        i += 2;
+      }
+
+      console.log("reverse the no using while loop");
+      // reverse the no
+      i = 5;
+      while (i >= 0) {
+        console.log(i);
+        i--;
+      }
+
+      //[1, 2, 3] => [2, 3, 4] increased by one
+      const originalArray = [1, 2, 3];
+      const newArray = [];
+
+      incrementArray(originalArray);
+
+      incrementArray([-2, -1, 0, 99]);
+
+      function incrementArray(array) {
+        for (let i = 0; i < array.length; i++) {
+          newArray[i] = array[i] + 1;
+        }
+        console.log(newArray);
+      }
+
+      // increment by num in array
+      const addedArray = [];
+      let finalResult = addNum([1, 2, 3], 2);
+      console.log(finalResult);
+
+      finalResult = addNum([1, 2, 3], 3);
+      console.log(finalResult);
+
+      finalResult = addNum([-2, -1, 0, 99], 2);
+      console.log(finalResult);
+
+      function addNum(array, num) {
+        for (let i = 0; i < array.length; i++) {
+          addedArray[i] = array[i] + num;
+        }
+        return addedArray;
+      }
+
+      // add two arrays
+      const addedArray2 = [];
+
+      finalResult = addArrays([1, 1, 2], [1, 1, 3]);
+      console.log(finalResult);
+
+      finalResult = addArrays([1, 2, 3], [4, 5, 6]);
+      console.log(finalResult);
+
+      function addArrays(array1, array2) {
+        for (let i = 0; i < array1.length && i < array2.length; i++) {
+          addedArray2[i] = array1[i] + array2[i];
+        }
+        return addedArray2;
+      }
+
+      // count positive no
+
+      finalResult = countPositive([1, -3, 5]);
+      console.log(finalResult);
+
+      finalResult = countPositive([-2, 3, -5, 7, 10]);
+      console.log(finalResult);
+
+      function countPositive(array) {
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] > 0) {
+            count++;
+          }
+        }
+        return count;
+      }
+
+      // find min and max in array
+
+      finalResult = minMax([1, -3, 5]);
+      console.log(finalResult);
+
+      finalResult = minMax([-2, 3, -5, 7, 10]);
+      console.log(finalResult);
+
+      console.log(minMax([-2, -3, -1, 1, 7, 2, 8, 1]));
+
+      console.log(minMax([]));
+
+      console.log(minMax([3]));
+
+      function minMax(array) {
+        let min = 0;
+        let max = 0;
+        for (let i = 0; i < array.length; i++) {
+          if (min > array[i]) {
+            min = array[i];
+          } else if (max < array[i]) {
+            max = array[i];
+          }
+        }
+        if (array.length === 0) {
+          min = null;
+          max = null;
+        }
+        return `{min: ${min}, max: ${max}}`;
+      }
+
+      // count words
+      const wordsArray = ["apple", "grape", "apple", "apple"];
+
+      const result2 = countWords(wordsArray);
+
+      console.log(result2);
+
+      function countWords(array) {
+        let sameWordCount = 0;
+        let diffWordCount = 0;
+        for (let i = 0; i < array.length; i++) {
+          if (array[0] === array[i]) {
+            sameWordCount++;
+          } else {
+            diffWordCount++;
+          }
+        }
+        return `apple: ${sameWordCount} grape: ${diffWordCount}`;
+      }
+      */
+
+      const array1 = [1, 2, 3];
+      const array2 = array1.slice();
+      array2.push(4);
+      console.log(array1);
+      console.log(array2);
+
+      /*
+      const array3 = [1, 2, 3, 4, 5];
+      const firstValue = array3[0];
+      const secondValue = array3[1];
+      console.log(firstValue);
+      console.log(secondValue);
+      */
+      // shorthand for above one
+      const [firstValue, secondValue, thirdValue] = [1, 2, 3, 4, 5];
+      console.log(firstValue + " " + secondValue + " " + thirdValue);
+
+      console.log("Break");
+      for (let i = 1; i <= 10; i++) {
+        console.log(i);
+        if (i === 8) {
+          break;
+        }
+      }
+
+      console.log("Continue");
+      for (let i = 0; i <= 10; i++) {
+        if (i === 5) {
+          continue;
+        }
+        console.log(i);
+      }
+
+      console.log("skip divisible by 3");
+      for (let i = 1; i <= 10; i++) {
+        if (i % 3 === 0) {
+          continue;
+        }
+        console.log(i);
+      }
+
+      console.log("skip divisible by 3 using while");
+      let i = 1;
+      while (i <= 10) {
+        if (i % 3 === 0) {
+          i++;
+          continue;
+        }
+        console.log(i);
+        i++;
+      }
+    </script>
+  </body>
+</html>

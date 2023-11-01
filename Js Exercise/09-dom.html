@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <style></style>
+  </head>
+  <body>
+    <p>This is my webpage.</p>
+    <p class="my-para">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut deleniti
+      porro neque hic fugiat saepe voluptates voluptatum quasi voluptate nulla.
+      Repellat iusto eos ipsa quos.
+    </p>
+
+    <!-- display head or tail -->
+    <button class="js-head-btn" onclick="chooseCoin('Heads')">Heads</button>
+    <button class="js-tail-btn" onclick="chooseCoin('Tails')">Tails</button>
+    <p class="js-chooseCoin"></p>
+
+    <!-- input a name and display -->
+    <input
+      type="text"
+      placeholder="Enter a name"
+      class="js-input"
+      onkeydown="submitKeydown(event)"
+    />
+    <button type="submit" class="submit-btn" onclick="inputSubmit()">
+      submit
+    </button>
+    <p class="js-para"></p>
+
+    <!-- cost calculate -->
+    <input type="text" placeholder="Enter cost" class="input-costBtn" />
+    <button class="calc-btn" onclick="calculateCost()">Calculate</button>
+    <p class="display-cost"></p>
+
+    <!-- onkeyup -->
+    <input
+      type="text"
+      placeholder="Type Something"
+      class="input-typing"
+      onkeyup="inputOnkeyup()"
+    />
+    <p class="display-typing"></p>
+    <script>
+      /*
+    console.log(document.body.innerHTML);
+    document.title = 'demo';
+
+      console.log(document.title);
+      document.querySelector("p").innerHTML = "hello";
+      document.querySelector(".my-para").innerHTML = "hello world";
+      //document.body.innerHTML = 'hii';
+      const buttonElement = document.querySelector("button").innerHTML='changed';
+      console.log(buttonElement);
+      const button2Element = document.querySelector(".btn-2").innerHTML='btn-2';
+  
+     console.log(document.body);
+     */
+
+      function chooseCoin(coin) {
+        const chooseElement = document.querySelector(".js-chooseCoin");
+        chooseElement.innerHTML = `You Choose: ${coin}`;
+      }
+
+      function submitKeydown(event) {
+        event.key === "Enter" && inputSubmit();
+      }
+
+      function inputSubmit() {
+        const inputElement = document.querySelector(".js-input");
+        const name = inputElement.value;
+        document.querySelector(".js-para").innerHTML = `Your name is: ${name}`;
+      }
+
+      function calculateCost() {
+        const inputCost = document.querySelector(".input-costBtn");
+        const cost = Number(inputCost.value) + 10;
+        let totalCost = cost.toFixed(2);
+        document.querySelector(".display-cost").innerHTML = `$${totalCost}`;
+      }
+
+      function inputOnkeyup() {
+        const typingElement = document.querySelector(".input-typing");
+
+        const typingValue = typingElement.value;
+
+        document.querySelector(".display-typing").innerHTML = typingValue;
+      }
+    </script>
+  </body>
+</html>

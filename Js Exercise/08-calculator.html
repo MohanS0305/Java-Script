@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <p>
+      <button onclick="calculator(1)">1</button>
+      <button onclick="calculator(2)">2</button>
+      <button onclick="calculator(3)">3</button>
+      <button onclick="calculator('+')">+</button>
+    </p>
+    <p>
+      <button onclick="calculator(4)">4</button>
+      <button onclick="calculator(5)">5</button>
+      <button onclick="calculator(6)">6</button>
+      <button onclick="calculator('-')">-</button>
+    </p>
+    <p>
+      <button onclick="calculator(7)">7</button>
+      <button onclick="calculator(8)">8</button>
+      <button onclick="calculator(9)">9</button>
+      <button onclick="calculator('*')">*</button>
+    </p>
+    <p>
+      <button onclick="calculator(0)">0</button>
+      <button onclick="calculator('.')">.</button>
+      <button onclick="mainCalculator()">=</button>
+      <button onclick="calculator('/')">/</button>
+    </p>
+    <p>
+      <button onclick="calculation='';console.log('cleared.')">Clear</button>
+    </p>
+
+    <p>
+      <button onclick="console.log(`${storeCalculation} = ${storeMainCalculation}`)">show</button>
+    </p>
+
+    <script>
+      const storeCalculation = JSON.parse(localStorage.getItem("calculation"));
+
+      const storeMainCalculation = JSON.parse(localStorage.getItem("mainCalculation"));
+
+      function mainCalculator() {
+        const finalResult = eval(calculation);
+        localStorage.setItem("mainCalculation",JSON.stringify(finalResult));
+        console.log(finalResult);
+      }
+
+      let calculation = "";
+      function calculator(value) {
+        calculation += value;
+        console.log(value);
+        localStorage.setItem("calculation",JSON.stringify(calculation));
+      }
+
+      
+    </script>
+  </body>
+</html>

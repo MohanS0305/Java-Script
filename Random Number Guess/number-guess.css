@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.container {
+  margin-left: 10px;
+}
+
+.title {
+  margin: 20px 0;
+  text-align: center;
+  color: blueviolet;
+}
+
+label {
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+#txtBox {
+  margin-bottom: 10px;
+  border: 1.5px solid rgb(148, 133, 133);
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 16px;
+  color: blueviolet;
+}
+
+#txtBox:focus {
+  outline: none;
+}
+
+#txtBox::selection {
+  color: white;
+  background-color: blueviolet;
+}
+
+#submitBtn {
+  padding: 4px 10px;
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submitBtn:hover {
+  background-color: rgb(167, 55, 175);
+  width: 90px;
+}
+
+#myPara {
+  margin: 15px 0;
+  font-size: 18px;
+  text-transform: capitalize;
+  color: rgb(53, 163, 53);
+  letter-spacing: 1px;
+}

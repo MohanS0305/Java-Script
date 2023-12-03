@@ -11,7 +11,7 @@ const btn = (document.getElementById("submitBtn").onclick = function () {
     result.innerHTML = "Pls Enter a number";
   }else if (userGuess == answer) {
     console.log(userGuess);
-    result.innerHTML = `Your guess is ${userGuess} and computer guess is ${answer} you find in ${guess} guesses`;
+    result.innerHTML = `Your guess is ${userGuess} and computer guess is ${answer} you find in ${guess} guesses.`;
   } else if (userGuess < answer) {
     console.log(userGuess);
     result.innerHTML = "It's too small!!!";

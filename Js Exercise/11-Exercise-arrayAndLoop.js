@@ -91,35 +91,28 @@ function removeEgg(foods) {
 console.log(foods);
 */
 
-/*
 // divisible by 3 is Fizz , divisible by 5 Buzz divisible by both 3 and 5 FizzBuzz
 
 for (let i = 1; i <= 20; i++) {
-  if (i % 3 !== 0 && i % 5 !== 0) {
-    console.log(i);
-  }
-  if (i % 3 === 0) {
-    console.log("Fizz");
-  }
-  if (i % 5 === 0) {
-    console.log("Buzz");
-  }
   if (i % 3 === 0 && i % 5 === 0) {
     console.log("FizzBuzz");
+  } else if (i % 3 === 0) {
+    console.log("Fizz");
+  } else if (i % 5 === 0) {
+    console.log("Buzz");
   }
 }
-*/
 
-const originalArray = ["green", "red", "blue", "red"];
-const uniqueArray1 = [];
+// const originalArray = ["green", "red", "blue", "red"];
+// const uniqueArray1 = [];
 
-uniqueArray(originalArray);
+// uniqueArray(originalArray);
 
-function uniqueArray(array) {
-  for (let i = 0; i < array.length; i++) {
-    if (uniqueArray1.indexOf(array[i] === -1)) {
-      uniqueArray1.push(array[i]);
-    }
-  }
-  console.log(uniqueArray1);
-}
+// function uniqueArray(array) {
+//   for (let i = 0; i < array.length; i++) {
+//     if (uniqueArray1.indexOf(array[i] === -1)) {
+//       uniqueArray1.push(array[i]);
+//     }
+//   }
+//   console.log(uniqueArray1);
+// }

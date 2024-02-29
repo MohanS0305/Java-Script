@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cost-input {
+        margin-top: 20px;
+        font-size: 15px;
+        padding: 10px;
+      }
+
+      .calculate-btn {
+        background-color: rgb(70, 190, 55);
+        font-size: 14px;
+        color: white;
+        border: none;
+        padding: 12px 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="Cost of order" class="cost-input" />
+    <button class="calculate-btn" onclick="costCalculate()">Calculate</button>
+    <p class="cost-display"></p>
+
+    <script>
+      function costCalculate() {
+        const costInput = document.querySelector(".cost-input");
+
+        let cost = Number(costInput.value);
+
+        if (cost >= 0) {
+          document.querySelector(".cost-display").innerHTML = `$${cost}`;
+        } else {
+          let invalidCost=document.querySelector(
+            ".cost-display"
+          ).innerHTML = `Error: cost cannot be less than $0`;
+          document.querySelector('.cost-display').style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>

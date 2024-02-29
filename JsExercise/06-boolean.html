@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boolean in js</title>
+</head>
+<body>
+    <script>
+
+      /* In java script == is used to check the data type as well as values it will convert the data type into same data type after it will check the type. ex: 5 == '5.00' is true because it will convert the string to number type after that it will check the condition */ 
+
+      console.log(3 == '3.00'); // values is same so it is true
+
+      console.log(4 == '4'); // values is same so it is true
+
+      console.log(5 == '5.25'); // values is not same so it is false
+
+      /* In java script === is used to check the data type as well as values both data type are same or not ex: 5 === '5.00' false because both data type are not same it is number and string   */
+
+      console.log(4 === 4); // values and data type is same so it is true
+      
+      console.log(4 === '4'); // values is same but data type is not same so it is false
+
+      console.log(8 === 4); // data type is same but values are not same so it is false
+
+      console.log('hii' === 'hii'); // values and data type is same so it is true
+
+      console.log('hello' === 'Hello'); // data type is same but values are not  same because js is case-sensitive so it is false
+
+      // if statements in java script
+
+      if(20 >= 18) {
+        console.log('you can drive');
+      } 
+
+      // if-else statement
+
+      if(16 >= 18) {
+        console.log('you can drive');
+      } else {
+        console.log('you can\'t drive');
+      }
+
+      // else-if statement
+
+      if(15>=18) {
+        console.log('you can drive');
+      } else if (18 >=18) {
+        console.log('Almost drive');
+      } else {
+        console.log('you can\'t drive');
+      }
+
+      // variables with if statements
+
+      const age = 22;
+
+      if(age >= 18) {
+        console.log('you can drive');
+      } else {
+        console.log('you can\'t drive');
+      }
+
+      // And operator && in js 
+      /* && operator is used to check both the condition is true if any one condition is false it result is false. */
+
+      console.log(true & true) // 1
+      console.log(true & false); // 0
+      console.log(true && true); // true
+      console.log(true && false); // false
+
+      // OR operator || in js
+      /* || operator is used to check any one of the condition is true it result is true otherwise it is false*/
+
+      console.log(true | false); // 1
+      console.log(false | false); // 0
+      console.log(true || false); // true
+      console.log(false || false); // false
+
+      // Not operator !
+      /* ! operator is used to check if it is true it result is false. If it is false it result is true. */
+
+      console.log(!true) // false
+      console.log(!false) // true
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advance Function</title>
+  </head>
+  <body>
+    <button class="js-start-btn start-btn" onclick="changeState()">
+      start
+    </button>
+    <button class="js-addCart addCart-btn" onclick="addCart()">
+      Add to cart
+    </button>
+    <p class="js-displayCart displayCart"></p>
+    <button class="js-addMsg" onclick="addBtnMsg()">Add</button>
+    <button class="js-removeMsg" onclick="removeBtnMsg()">Remove</button>
+    <script>
+      /*
+      const add = function () {
+        console.log(2 + 3);
+      };
+
+      add();
+      add();
+
+      function runTwice(fun) {
+        fun();
+      }
+
+      runTwice(function () {
+        console.log("Hii");
+      });
+
+      runTwice(add);
+      runTwice(add);
+      */
+
+      /*
+      function changeState() {
+        const startBtnElement = document.querySelector(".js-start-btn");
+
+        setTimeout(()=>{startBtnElement.innerHTML = 'Finished.'}, 1000);
+
+      }
+      */
+
+      function changeState() {
+        const startBtnElement = document.querySelector(".js-start-btn");
+
+        startBtnElement.innerHTML = "Loading....";
+        setTimeout(() => {
+          startBtnElement.innerHTML = "Finished.";
+        }, 1000);
+      }
+
+      /*
+      function addCart() {
+        const displayCart = document.querySelector(".js-displayCart");
+        displayCart.innerHTML = "Added";
+
+        setTimeout(() => {
+          displayCart.innerHTML = "";
+        }, 2000);
+      }
+      */
+
+      /*
+      function addCart() {
+        const displayCart = document.querySelector(".js-displayCart");
+        clearTimeout();
+        displayCart.innerHTML = "Added";
+        setTimeout(() => {
+          displayCart.innerHTML = "";
+        }, 2000);
+      }
+      */
+
+      /*
+      document.title = "Apps";
+      setTimeout(() => {
+        document.title = "(2) New messages";
+      }, 1000);
+      */
+
+      /*
+      let count = 0;
+      document.title = "Apps";
+      setInterval(() => {
+        document.title = `(${count++}) New messages`;
+      }, 1000);
+      */
+
+      /*
+      let msgCount = 0;
+      function addBtnMsg() {
+        const addElement = document.querySelector(".js-addMsg");
+
+        document.title = `(${msgCount++}) New message`;
+
+        setTimeout(() => {
+          document.title = "Apps";
+        }, 1000);
+      }
+
+      function removeBtnMsg() {
+        const removeElement = document.querySelector(".js-removeMsg");
+
+        if (msgCount >= 0) {
+          document.title = `(${msgCount--}) New message`;
+        }
+
+        setTimeout(() => {
+          document.title = "Apps";
+        }, 1000);
+      }
+      */
+
+      const multiply = (value1, value2) => {
+        return value1 * value2;
+      };
+
+      console.log(multiply(2, 3));
+      console.log(multiply(7, 10));
+
+      const countPositive = (array) => {
+        let count = 0;
+        array.forEach((value) => {
+          if (value >= 0) {
+            count++;
+          }
+        });
+        return count;
+      };
+
+      console.log(countPositive([1, -3, 5]));
+      console.log(countPositive([-2, 3, -5, 7, 10]));
+
+      const addNum = (array, num) => {
+        return array.map((value) => value + num);
+      };
+
+      console.log(addNum([1, 2, 3], 2));
+      console.log(addNum([-2, -1, 0, 99], 2));
+
+      /*
+      console.log(removeEgg(["egg", "apple", "egg", "egg", "ham"]));
+      function removeEgg(foods) {
+        return foods.filter((eggs) => {
+          if (eggs === "egg") {
+            return false;
+          } else {
+            return true;
+          }
+        });
+      }
+      */
+
+      console.log(
+        ["egg", "apple", "egg", "egg", "ham"].filter((value) => {
+          if (value === "egg") return false;
+          else return true;
+        })
+      );
+
+      function removeEgg(foods) {
+        let count = 0;
+        const result = foods.filter(value => {
+          if(value === 'egg' && count < 2) {
+            count++;
+            return false;
+          } else {
+            return true;
+          }
+        });
+        console.log(result);
+      }
+
+      removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']);
+    </script>
+  </body>
+</html>

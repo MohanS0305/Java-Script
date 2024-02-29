@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+</head>
+<body>
+    <p>
+      <button onclick="console.log('1');calculation+=1">1</button>
+      <button onclick="console.log('2');calculation+=2">2</button>
+      <button onclick="console.log('3');calculation+='3'">3</button>
+      <button onclick="console.log('+');calculation+='+'">+</button>
+    </p>
+    <p>
+      <button onclick="console.log('4');calculation+='4'">4</button>
+      <button onclick="console.log('5');calculation+='5'">5</button>
+      <button onclick="console.log('6');calculation+='6'">6</button>
+      <button onclick="console.log('-');calculation+='-'">-</button>
+    </p>
+    <p>
+      <button onclick="console.log('7');calculation+='7'">7</button>
+      <button onclick="console.log('8');calculation+='8'">8</button>
+      <button onclick="console.log('9');calculation+='9'">9</button>
+      <button onclick="console.log('*');calculation+='*'">*</button>
+    </p>
+    <p>
+      <button onclick="console.log('0');calculation+='0'">0</button>
+      <button onclick="console.log('.');calculation+='.'">.</button>
+      <button onclick="console.log(eval(calculation))">=</button>
+      <button onclick="console.log('/');calculation+='/'">/</button>
+    </p>
+    <p>
+      <button onclick="calculation='';console.log('cleared.')">Clear</button>
+    </p>
+
+    <script>
+      let calculation = '';
+    </script>
+    </body>
+</html>

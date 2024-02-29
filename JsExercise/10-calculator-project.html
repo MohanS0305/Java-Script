@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background-color: black;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 10%;
+      }
+      .displayCalculation {
+        border: 2px solid rgba(0, 0, 0, 0.4);
+        background-color: rgb(50, 50, 50);
+        width: 15%;
+        height: 28px;
+        padding: 6px 4px 6px 2px;
+        border-radius: 4px;
+        margin: 10px 10px;
+        color: white;
+        font-size: 22px;
+      }
+      button {
+        background-color: rgb(50, 50, 50);
+        border: 2px solid rgb(50, 50, 50);
+        border-radius: 50%;
+        padding: 8px 10px;
+        margin: 8px 5px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .symbol-btn {
+        background-color: rgb(253, 159, 10);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input class="displayCalculation" disabled />
+      <p>
+        <button onclick="calculator(1)">1</button>
+        <button onclick="calculator(2)">2</button>
+        <button onclick="calculator(3)">3</button>
+        <button onclick="calculator('+')" class="symbol-btn">+</button>
+      </p>
+      <p>
+        <button onclick="calculator(4)">4</button>
+        <button onclick="calculator(5)">5</button>
+        <button onclick="calculator(6)">6</button>
+        <button onclick="calculator('-')" class="symbol-btn">-</button>
+      </p>
+      <p>
+        <button onclick="calculator(7)">7</button>
+        <button onclick="calculator(8)">8</button>
+        <button onclick="calculator(9)">9</button>
+        <button onclick="calculator('*')" class="symbol-btn">*</button>
+      </p>
+      <p>
+        <button onclick="calculator(0)">0</button>
+        <button onclick="calculator('.')">.</button>
+        <button onclick="mainCalculator()">=</button>
+        <button onclick="calculator('/')" class="symbol-btn">/</button>
+      </p>
+      <p class="clear">
+        <button
+          onclick="calculation='';
+      displayCalculation()" class="clr-btn"
+        >
+          Clear
+        </button>
+        
+        <button
+          onclick="document.querySelector('.displayCalculation').value=`${storeCalculation} = ${storeMainCalculation}`"
+        >
+          show
+        </button>
+      </p>
+    </div>
+
+    <script>
+      const storeCalculation = JSON.parse(localStorage.getItem("calculation"));
+
+      const storeMainCalculation = JSON.parse(
+        localStorage.getItem("mainCalculation")
+      );
+
+      function mainCalculator() {
+        const finalResult = eval(calculation);
+        localStorage.setItem("mainCalculation", JSON.stringify(finalResult));
+        document.querySelector(".displayCalculation").value = finalResult;
+      }
+
+      let calculation = "";
+      function calculator(value) {
+        calculation += value;
+        displayCalculation();
+        localStorage.setItem("calculation", JSON.stringify(calculation));
+      }
+
+      function displayCalculation() {
+        document.querySelector(".displayCalculation").value = calculation;
+      }
+    </script>
+  </body>
+</html>

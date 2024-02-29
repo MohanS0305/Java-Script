@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin flip</title>
+  </head>
+  <body>
+    <button onclick="playGame('Heads')">Heads</button>
+    <button onclick="playGame('Tails')">Tails</button>
+    <button
+      onclick="
+        score={wins:0,losses:0};
+        localStorage.removeItem('score');
+        alert('The game is reset.');
+    "
+    >
+      Reset game
+    </button>
+
+    <script>
+      // coin flip
+      const randomNumber = Math.random();
+      let result = "";
+      let finalResult = "";
+      /*
+      if(randomNumber >=0.0 && randomNumber <=0.5) {
+        result = 'Heads';
+      } else {
+        result = 'Tails';
+      }
+      console.log(`you picked ${guess}. computer picked ${result}`);
+      if(guess === result) {
+        console.log('You win!');
+      } else {
+        console.log('You lose!');
+      }
+      */
+
+      // Ternary operator
+      let score = JSON.parse(localStorage.getItem("score"));
+      if (!score) {
+        score = { wins: 0, losses: 0 };
+      }
+
+      function playGame(guess) {
+        randomNumber >= 0.0 && randomNumber <= 0.5
+          ? (result = "Heads")
+          : (result = "Tails");
+
+        if (guess === "Heads") {
+          if (result === "Heads") {
+            finalResult = "You win!";
+          } else if (result === "Tails") {
+            finalResult = "You lose!";
+          }
+        }
+
+        if (guess === "Tails") {
+          if (result === "Heads") {
+            finalResult = "You lose!";
+          } else if (result === "Tails") {
+            finalResult = "You win!";
+          }
+        }
+
+        if (finalResult === "You win!") {
+          score.wins += 1;
+        } else if (finalResult === "You lose!") {
+          score.losses += 1;
+        }
+
+        localStorage.setItem("score", JSON.stringify(score));
+
+        alert(
+          `You picked ${guess}. Computer picked ${result}\nWins: ${score.wins}, Losses: ${score.losses}.`
+        );
+      }
+    </script>
+  </body>
+</html>

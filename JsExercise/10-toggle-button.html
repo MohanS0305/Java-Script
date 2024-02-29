@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Button</title>
+    <style>
+      .btn {
+        border: none;
+        padding: 6px 8px;
+        margin: 4px;
+      }
+
+      .after-toggle {
+        background-color: black;
+        color: white;
+        padding: 6px 8px;
+        margin: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="js-game btn" onclick="toggleBtn('.js-game')">Gaming</button>
+    <button class="js-music btn" onclick="toggleBtn('.js-music')">Music</button>
+    <button class="js-tech btn" onclick="toggleBtn('.js-tech')">Tech</button>
+
+    <script>
+      function toggleBtn(toggle) {
+        const toggleBtnElement = document.querySelector(toggle);
+
+        if (!toggleBtnElement.classList.contains("after-toggle")) {
+          toggleOff();
+
+          toggleBtnElement.classList.add("after-toggle");
+        } else {
+          toggleBtnElement.classList.remove("after-toggle");
+        }
+      }
+
+      function toggleOff() {
+        const previousButton = document.querySelector("after-toggle");
+        if (previousButton) {
+          previousButton.classList.remove("after-toggle");
+        }
+      }
+    </script>
+  </body>
+</html>

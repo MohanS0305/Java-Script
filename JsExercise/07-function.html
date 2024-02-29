@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function in js</title>
+</head>
+<body>
+  <script>
+    /*
+    function greet(name) {
+      if(name !== undefined) {
+        console.log(`hello ${name}`);
+      } else {
+        console.log('Hi there!');
+      }
+      
+    }
+    greet('sam');
+    greet('simon');
+    greet();
+    */
+
+    /*
+      // celsius to fahrenheit
+    function convertToFahrenheit(celsius) {
+      fahrenheit = (celsius*9/5)+32
+      console.log(fahrenheit);
+    }
+
+    convertToFahrenheit(25);
+
+    // fahrenheit to celsius
+    function convertToCelsius(fahrenheit) {
+      celsius = (fahrenheit-32)*5/9;
+      console.log(celsius);
+    }
+
+    convertToCelsius(86);
+
+    */
+
+    // convert temperature
+    function convertTemperature(degrees, unit) {
+      if(unit === 'C'){
+        fahrenheit = (degrees*9/5)+32;
+        console.log(`${fahrenheit}F`);
+      } else if(unit === 'F') {
+        celsius = (degrees-32)*5/9;
+        console.log(`${celsius}C`);
+      }
+    }
+
+    convertTemperature(25, 'C');
+    convertTemperature(86, 'F');
+  </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Functions</title>
+  </head>
+  <body>
+    <button class="js-click-btn">click</button>
+    <script>
+      /*
+      // synchronization
+      // synchronization is wait for our code one line to  finished after the other will execute.
+      function hello() {
+        console.log("hello hii");
+        console.log("welcome");
+      }
+      hello();
+
+      setTimeout(function msg() {
+        console.log("this is set msg");
+      }, 3000);
+
+      //asynchronous is won't wait for the particular code to finish before it move to next line of code.
+      console.log("Asynchronous");
+
+      setInterval(() => {
+        console.log("hii");
+      }, 2000);
+      */
+
+      /*
+      const function1 = function msg() {
+        console.log("hello");
+      };
+
+      console.log(function1);
+      function1();
+
+      const function2 = function() {
+        console.log("welcome");
+      }
+      function2();
+
+      function demo(param){
+        console.log(param);
+      }
+
+      demo("this is demo fun");
+
+      function passParam(param) {
+        param();
+      }
+
+      passParam(function fun(){
+        console.log("this is param msg");
+      });
+
+      [
+        'J SivaKumar',
+        'S Kalaivani',
+        'S Mohan',
+        'S Gurudesh'
+      ].forEach(function (value, index){
+        console.log(index);
+        console.log(value);
+      });
+      */
+
+      /*
+      // arrow function
+      const cal = () => 2 + 3;
+      console.log(cal());
+
+      const name = () => {
+        return ['Sharath', 'Manoj', 'Sam', 'Ram', 'Kumar'];
+      }
+      console.log(name());
+
+      const function1 = (param) => {
+        console.log(param);
+      };
+
+      function1('hi this is function1 msg');
+
+      const function2 = (param, param2) => {
+        console.log(param, param2);
+      }
+
+      function2(1, 'Sam');
+      */
+
+      /*
+      const btnElement = document.querySelector(".js-click-btn");
+
+      const clickedEvent = () => {
+        console.log("clicked");
+      };
+
+      const timeEvent = () => {
+        console.log("Hii hello");
+      };
+
+      btnElement.addEventListener("click", clickedEvent);
+
+      setTimeout(() => {
+        btnElement.removeEventListener("click", clickedEvent);
+      }, 2000);
+
+      setTimeout(() => {
+        btnElement.addEventListener("click", timeEvent());
+      }, 3000);
+      */
+
+      const array = [1, 2, -3, -2, , -95, 45];
+      // filter() is used to filter the element based on the condition and it added to new array
+      const filterResult = array.filter((value, index) => {
+        /*
+        if (value >= 0) {
+          return true;
+        } else {
+          return false;
+        }
+        */
+        return value >= 0;
+      });
+      console.log(filterResult);
+
+      // map() is used to take an array and based on the return statement it will put that one in new array.
+
+      const mapResult = [1, 2, 3, 4].map((value) => {
+        return value * 2;
+      });
+      console.log(mapResult);
+
+      // shorthand property for above one
+      console.log([1, 1, 3].map( value => value * 2));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo-List</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h2 {
+        margin-top: 20px;
+        margin-left: 10px;
+      }
+
+      .inputList {
+        font-size: 15px;
+        padding: 10px;
+        margin-top: 20px;
+        margin-left: 15px;
+        border-radius: 4px;
+      }
+
+      .add-btn {
+        background-color: rgb(212, 70, 70);
+        font-size: 14px;
+        color: white;
+        border: none;
+        padding: 11px 14px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .displayToDo {
+        margin: 15px 20px;
+        font-size: 16px;
+      }
+
+      .displayToDo p {
+        margin: 5px 0px;
+      }
+
+      /* todoList v3  style*/
+      .displayToDo3 {
+        display: grid;
+        grid-template-columns: 200px 150px 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ToDo List version 1 -->
+    <h2>ToDoList v1</h2>
+    <input type="text" placeholder="Todo-List" class="inputList" />
+    <button class="add-btn" onclick="toDoList()">Add</button>
+
+    <!-- ToDo List version2 -->
+    <h2>ToDoList v2</h2>
+    <input
+      type="text"
+      placeholder="Todo-List"
+      class="inputList inputList2"
+      onkeydown="handleKeyTodoList(event)"
+    />
+    <button class="add-btn" onclick="toDoList2()">Add</button>
+    <div class="displayToDo"></div>
+
+    <!-- ToDo List version3 -->
+    <h2>ToDoList v3</h2>
+    <input
+      type="text"
+      placeholder="Todo-List"
+      class="input-todo js-inputList"
+    />
+    <input type="date" class="js-date" />
+    <button class="add-btn3 js-add-btn" onclick="toDoList3()">Add</button>
+    <div class="displayToDo3 js-displayTodo"></div>
+    <script>
+      // todo list version1
+      let todoList1 = [];
+      function toDoList() {
+        const inputElement = document.querySelector(".inputList");
+
+        let displayToDo = inputElement.value;
+        todoList1.push(displayToDo);
+        console.log(todoList1);
+        inputElement.value = "";
+      }
+
+      //todo list version2
+      let todoList2 = [];
+      function toDoList2() {
+        let todoListHtml = "";
+        const inputElement2 = document.querySelector(".inputList2");
+
+        let displayToDoList = inputElement2.value;
+
+        const todoHtml = `<p>${displayToDoList}</p>`;
+
+        todoList2.push(todoHtml);
+        for (let i = 0; i < todoList2.length; i++) {
+          todoListHtml += todoList2[i];
+          document.querySelector(".displayToDo").innerHTML = todoListHtml;
+        }
+        inputElement2.value = "";
+      }
+
+      function handleKeyTodoList(event) {
+        if (event.key === "Enter") {
+          toDoList2();
+        }
+      }
+
+      //todo list version3
+      let todoList = [];
+      function toDoList3() {
+        let todoListHtml = "";
+        const inputElement3 = document.querySelector(".js-inputList");
+
+        const name = inputElement3.value;
+
+        const dueDate = document.querySelector(".js-date");
+
+        const date = dueDate.value;
+
+        todoList.push({ date, name });
+        for (let i = 0; i < todoList.length; i++) {
+          const todoObject = todoList[i];
+          const name = todoObject.name;
+          const date = todoObject.date;
+          console.log(todoObject);
+
+          const todoHtml = `
+        <div>
+        <p>${name}</p> 
+         </div> 
+         <div>
+          <p>${date}</p>
+          </div>
+          <div>
+          <p>
+            <button onclick="
+             todoList.splice(${i}, 1);
+            toDoList3();
+            ">Delete</button>
+          </p>
+          </div>`;
+
+          todoListHtml += todoHtml;
+
+          document.querySelector(".js-displayTodo").innerHTML = todoListHtml;
+
+          inputElement3.value = "";
+          console.log(todoList);
+        }
+      }
+    </script>
+  </body>
+</html>

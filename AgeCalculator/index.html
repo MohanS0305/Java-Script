@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age-Calculator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="heading">
+        <h1>
+          JavaScript<br />
+          <span>Age Calculator</span>
+        </h1>
+      </div>
+      <div class="input-container">
+        <input type="date" id="date" />
+        <button onclick="calculateAge()">Calculate</button>
+      </div>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      let userInput = document.getElementById("date");
+      userInput.max = new Date().toISOString().split("T")[0];
+      let result = document.getElementById("result");
+
+      function calculateAge() {
+        let birthDate = new Date(userInput.value);
+
+        let birthDay = birthDate.getDate();
+        let birthMonth = birthDate.getMonth() + 1;
+        let birthYear = birthDate.getFullYear();
+
+        let today = new Date();
+
+        let currentDay = today.getDate();
+        let currentMonth = today.getMonth() + 1;
+        let currentYear = today.getFullYear();
+
+        let calcDay, calcMonth, calcYear;
+
+        calcYear = currentYear - birthYear;
+
+        if (currentMonth >= birthMonth) {
+          calcMonth = currentMonth - birthMonth;
+        } else {
+          calcYear--;
+          calcMonth = 12 + currentMonth - birthMonth;
+        }
+
+        if (currentDay >= birthDay) {
+          calcDay = currentDay - birthDay;
+        } else {
+          calcMonth--;
+          calcDay =
+            getDaysInMonth(birthYear, birthMonth) + currentDay - birthDay;
+        }
+
+        if (calcMonth < 0) {
+          calcMonth = 11;
+          calcYear--;
+        }
+        result.innerHTML = `You are <span>${calcYear}</span> year, <span>${calcMonth}</span> month and <span>${calcDay}</span> day old.`;
+      }
+      function getDaysInMonth(year, month) {
+        return new Date(year, month, 0).getDate();
+      }
+    </script>
+  </body>
+</html>
